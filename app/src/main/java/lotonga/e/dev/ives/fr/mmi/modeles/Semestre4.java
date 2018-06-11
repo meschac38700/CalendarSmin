@@ -1,5 +1,7 @@
 package lotonga.e.dev.ives.fr.mmi.modeles;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,6 +11,12 @@ public class Semestre4 extends Semestre {
     public Semestre4( )
     {
         super();
+        this.s4a = new Semestre4A();
+        this.s4b = new Semestre4B();
+        this.s4c = new Semestre4C();
+        this.emplois_du_temps.put("s4a", this.getS4a().getEmplois_Du_Temps());
+        this.emplois_du_temps.put("s4b", this.getS4b().getEmplois_Du_Temps());
+        this.emplois_du_temps.put("s4c", this.getS4c().getEmplois_Du_Temps());
     }
 
     public Semestre4A getS4a() {

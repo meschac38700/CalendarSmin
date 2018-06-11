@@ -44,7 +44,7 @@ public class Cours {
     {
         //this.name = event.getName();
         this.name = event.getSummary().getValue();
-        this.uid = event.getUid().getValue(); //TODO Implementer => la comparaison de deux cours se fera avec l'uid
+        this.uid = event.getUid().getValue();
         this.salle = event.getLocation().getValue();
         this.groupe = this.extraireGroupe(event);
         this.professeur = this.extraireNomProf(event);

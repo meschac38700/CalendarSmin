@@ -1,4 +1,4 @@
-package lotonga.e.dev.ives.fr.mmi.TelechargerFichierICS;
+package lotonga.e.dev.ives.fr.mmi.TelechargerICSURL;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -13,7 +13,7 @@ import java.io.OutputStreamWriter;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-public class TelechargerDepuisURL {
+public class TelechargerICS {
 
     private static String base_url= "http://ade6-ujf-ro.grenet.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=5946,5945,5944,4592,7357,7836,7350,7335,7334,7326,4907,4898,7385,7384,7317,7265,7390,7389,7387,7380,7395,7394,5055,5057,5029,5028,5024,5023,7373,7369,7367,7364,2650,7360,7377,7396,7375,7338,7399,7398&projectId=2&calType=ical&";
 

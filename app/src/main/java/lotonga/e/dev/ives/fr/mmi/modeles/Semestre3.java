@@ -1,5 +1,7 @@
 package lotonga.e.dev.ives.fr.mmi.modeles;
 
+import android.util.Log;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -288,15 +290,15 @@ public class Semestre3 extends Semestre {
         @Override
         public void addCours(Cours c)
         {
-            if (c.getGroupe().equalsIgnoreCase("s3a1") && !this.s3b1.contains(c))
+            if (c.getGroupe().equalsIgnoreCase("s3b1") && !this.s3b1.contains(c))
             {
                 this.s3b1.add(c);
             }
-            else if(c.getGroupe().equalsIgnoreCase("s3a2") && !this.s3b2.contains(c))
+            else if(c.getGroupe().equalsIgnoreCase("s3b2") && !this.s3b2.contains(c))
             {
                 this.s3b2.add(c);
             }
-            else if(c.getGroupe().equalsIgnoreCase("s3a") && !this.s3b.contains(c))
+            else if(c.getGroupe().equalsIgnoreCase("s3b") && !this.s3b.contains(c))
             {
                 this.s3b.add(c);
             }

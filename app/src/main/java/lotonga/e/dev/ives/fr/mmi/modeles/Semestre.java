@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Semestre {
+
+    protected final static String TAG = "DEBUG_CUSTOM";
     /*
      *   preview tableau S4
      *   [ ==> HashMap

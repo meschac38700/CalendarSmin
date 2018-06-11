@@ -6,6 +6,9 @@ import net.fortuna.ical4j.model.ComponentList;
 import net.fortuna.ical4j.model.component.VEvent;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
+
 /**
  * Cette classe servira à gerer l'entrée dans le programme
  */
@@ -15,7 +18,7 @@ public class Main {
     public SemestreLangue s1lv2, s2lv2, s3lv2 ;
     public Semestre s1, s2, s3, s4;
     public LPSMIN lpsmin;
-
+    private static final String TAG = "DEBUG_CUSTOM";
 
     public Main(ComponentList cl)
     {
@@ -26,6 +29,7 @@ public class Main {
             try
             {
                 Cours c = new Cours((VEvent) cl.get(i));
+                //Log.d(TAG, "Main:  GROUPE COURS =========> "+c.getGroupe());
                 this.s1.ajoutCours(c);
                 this.s2.ajoutCours(c);
                 this.s3.ajoutCours(c);

@@ -128,6 +128,7 @@ public class Semestre2 extends Semestre {
             case "s2c":
                 this.s2c.deleteCours(c);
                 break;
+
         }
 
     }
