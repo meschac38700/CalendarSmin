@@ -12,11 +12,51 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public Semaine s;
-    public SousSemestre s1a, s1b, s1c, s2a, s2b, s2c, s3a, s3b, s3c, s4a, s4b, s4c;
     public SemestreLangue s1lv2, s2lv2, s3lv2 ;
     public Semestre s1, s2, s3, s4;
     public LPSMIN lpsmin;
+
+
+    public Main(ComponentList cl)
+    {
+        this.init();
+
+        for(int i=0; i < cl.size(); i++)
+        {
+            try
+            {
+                Cours c = new Cours((VEvent) cl.get(i));
+                this.s1.ajoutCours(c);
+                this.s2.ajoutCours(c);
+                this.s3.ajoutCours(c);
+                this.s4.ajoutCours(c);
+                this.s1lv2.addCours(c);
+                this.s2lv2.addCours(c);
+                this.s3lv2.addCours(c);
+                this.lpsmin.addCours(c);
+            }
+            catch (Exception e)
+            {
+                Log.e("MAIN CONSTRUTEUR", e.getMessage() );
+            }
+        }
+    }
+
+
+    private void init()
+    {
+        this.lpsmin = new LPSMIN( );
+
+        this.s1  = new Semestre1( );
+        this.s2  = new Semestre2( );
+        this.s3  = new Semestre3( );
+        this.s4  = new Semestre4( );
+
+        this.s1lv2 = new Semestre1LV2( );
+        this.s2lv2 = new Semestre2LV2( );
+        this.s3lv2 = new Semestre3LV2( );
+
+    }
 
   /*  public Main(VEvent event)
     {
@@ -77,37 +117,6 @@ public class Main {
         this.init();
     }
 */
-    public Main(ComponentList cl)
-    {
-        this.s = new Semaine();
-        for(int i=0; i < cl.size(); i++)
-        {
-            try
-            {
-                Cours c = new Cours((VEvent) cl.get(i));
-                this.s.ajoutCours(c);
-            }
-            catch (Exception e)
-            {
-                Log.e("MAIN CONSTRUTEUR", e.getMessage() );
-            }
-        }
-        this.init();
-    }
 
-    private void init()
-    {
-        this.lpsmin = new LPSMIN(this.s);
-
-        this.s1  = new Semestre1( this.s );
-        this.s2  = new Semestre2( this.s );
-        this.s3  = new Semestre3( this.s );
-        this.s4  = new Semestre4( this.s );
-
-        this.s1lv2 = new Semestre1LV2(this.s);
-        this.s2lv2 = new Semestre2LV2(this.s);
-        this.s3lv2 = new Semestre3LV2(this.s);
-
-    }
 
 }

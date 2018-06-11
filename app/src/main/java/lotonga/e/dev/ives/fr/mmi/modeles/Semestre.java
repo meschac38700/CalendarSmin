@@ -53,4 +53,7 @@ public abstract class Semestre {
         this.emplois_du_temps = emplois_du_temps;
 
     }
+
+    public abstract void ajoutCours(Cours c);
+    public abstract void suppCours(Cours c);
 }

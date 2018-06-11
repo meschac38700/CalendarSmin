@@ -6,16 +6,9 @@ import java.util.HashMap;
 public class Semestre4 extends Semestre {
 
     private SousSemestre s4a, s4b, s4c;
-    public Semestre4(Semaine semaine )
+    public Semestre4( )
     {
         super();
-        this.setAmphi(semaine.getS4());
-        this.s4a = new Semestre4A( semaine );
-        this.s4b = new Semestre4B( semaine );
-        this.s4c = new Semestre4C( semaine );
-        this.emplois_du_temps.put("s4a", this.s4a.getEmplois_Du_Temps());
-        this.emplois_du_temps.put("s4b", this.s4b.getEmplois_Du_Temps());
-        this.emplois_du_temps.put("s4c", this.s4c.getEmplois_Du_Temps());
     }
 
     public Semestre4A getS4a() {
@@ -42,23 +35,115 @@ public class Semestre4 extends Semestre {
         this.s4c = s4c;
     }
 
+
+    @Override
+    public void ajoutCours(Cours c)
+    {
+
+        if(c.getGroupe().contains("-"))
+        {
+            String[] arr = c.getGroupe().split("-");
+            for(String ch : arr)
+            {
+                switch (ch.toLowerCase())
+                {
+                    case "s4":
+                        this.amphi.add(c);
+                        break;
+                    case "s4a1":
+                    case "s4a2":
+                    case "s4a":
+                        this.s4a.addCours(c);
+                        break;
+                    case "s4b1":
+                    case "s4b2":
+                    case "s4b":
+                        this.s4b.addCours(c);
+                        break;
+                    case "s4c1":
+                    case "s4c2":
+                    case "s4c":
+                        this.s4c.addCours(c);
+                        break;
+                }
+            }
+        }
+        else
+        {
+            switch (c.getGroupe().toLowerCase())
+            {
+                case "s4":
+                    this.amphi.add(c);
+                    break;
+                case "s4a1":
+                case "s4a2":
+                case "s4a":
+                    this.s4a.addCours(c);
+                    break;
+                case "s4b1":
+                case "s4b2":
+                case "s4b":
+                    this.s4b.addCours(c);
+                    break;
+                case "s4c1":
+                case "s4c2":
+                case "s4c":
+                    this.s4c.addCours(c);
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void suppCours(Cours c)
+    {
+        switch (c.getGroupe().toLowerCase())
+        {
+            case "s4":
+                for (Cours c1 : this.amphi)
+                {
+                    if(c.getUid().equals(c1.getUid()))
+                    {
+                        this.amphi.remove(c1);
+                    }
+                }
+                break;
+            case "s4a1":
+            case "s4a2":
+            case "s4a":
+                this.s4a.deleteCours(c);
+                break;
+
+            case "s4b1":
+            case "s4b2":
+            case "s4b":
+                this.s4b.deleteCours(c);
+                break;
+            case "s4c1":
+            case "s4c2":
+            case "s4c":
+                this.s4c.deleteCours(c);
+                break;
+        }
+
+    }
+
     /***********************************************************************************************
      * *********************************************************************************************
      * ******************************** SEMESTRE_4A ************************************************
      * ********************************************************************************************
      **********************************************************************************************/
-
     public class Semestre4A extends SousSemestre {
 
         private ArrayList<Cours> s4a1;
         private  ArrayList<Cours> s4a2;
         private ArrayList<Cours> s4a;
 
-        public Semestre4A(Semaine semaine) {
+        public Semestre4A() {
             super();
-            this.setS4a(semaine.getS4a());
-            this.setS4a1(semaine.getS4a1());
-            this.setS4a2(semaine.getS4a2());
+            this.s4a = new ArrayList<>();
+            this.s4a1 = new ArrayList<>();
+            this.s4a2 = new ArrayList<>();
             this.emplois_du_temps.put("s4a1",this.getS4a1());
             this.emplois_du_temps.put("s4a2",this.getS4a2());
             this.emplois_du_temps.put("s4a",this.getS4a());
@@ -154,11 +239,11 @@ public class Semestre4 extends Semestre {
         private ArrayList<Cours> s4b2;
         private ArrayList<Cours> s4b;
 
-        public Semestre4B(Semaine semaine) {
+        public Semestre4B( ) {
             super();
-            this.setS4b(semaine.getS4b());
-            this.setS4b1(semaine.getS4b1());
-            this.setS4b2(semaine.getS4b2());
+            this.s4b = new ArrayList<>();
+            this.s4b1 = new ArrayList<>();
+            this.s4b2 = new ArrayList<>();
             this.emplois_du_temps.put("s4b1",this.getS4b1());
             this.emplois_du_temps.put("s4b2",this.getS4b2());
             this.emplois_du_temps.put("s4b",this.getS4b());
@@ -248,20 +333,19 @@ public class Semestre4 extends Semestre {
      * ******************************** SEMESTRE_4C ************************************************
      * ********************************************************************************************
      **********************************************************************************************/
-
     public class Semestre4C extends SousSemestre {
 
         private ArrayList<Cours> s4c1;
         private ArrayList<Cours> s4c2;
         private ArrayList<Cours> s4c;
 
-        public Semestre4C(Semaine semaine) {
+        public Semestre4C( ) {
             super();
-            this.setS4c(semaine.getS4c());
-            this.setS4c1(semaine.getS4c1());
-            this.setS4c2(semaine.getS4c2());
-            this.emplois_du_temps.put("s4c1",semaine.getS4c1());
-            this.emplois_du_temps.put("s4c2",semaine.getS4c2());
+            this.s4c = new ArrayList<>();
+            this.s4c1 = new ArrayList<>();
+            this.s4c2 = new ArrayList<>();
+            this.emplois_du_temps.put("s4c1",this.getS4c1());
+            this.emplois_du_temps.put("s4c2",this.getS4c2());
             this.emplois_du_temps.put("s4c",this.getS4c());
         }
 

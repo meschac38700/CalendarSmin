@@ -113,11 +113,11 @@ public class Cours {
         return description;
     }
 
-    /**
+    /*******************************************************************
      * Detecter le groupe du cours ex: LPSMIN, S1A1, S2B1, S3C2 etc ...
      * @param event
      * @return String
-     */
+     ********************************************************************/
     private String extraireGroupe(VEvent event)
     {
         String tmp_groupe = "";

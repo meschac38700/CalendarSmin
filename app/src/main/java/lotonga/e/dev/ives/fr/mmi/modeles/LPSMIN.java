@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class LPSMIN {
     private ArrayList<Cours> LPSMIN;
 
-    public LPSMIN(Semaine semaine)
+    public LPSMIN( )
     {
-        this.LPSMIN = semaine.getLPSMIN();
+        this.LPSMIN = new ArrayList<>();
 
     }
 

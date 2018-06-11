@@ -11,15 +11,14 @@ public class Semestre3LV2 extends SemestreLangue {
     private ArrayList<Cours> s3lv2espagnol3;
     private ArrayList<Cours> s3lv2italien;
 
-    public Semestre3LV2(Semaine semaine)
+    public Semestre3LV2( )
     {
         super();
-        this.setS3lv2allemand(semaine.getS3LV2Allemand());
-        this.setS3lv2espagnol1(semaine.getS3LV2Espagnol1());
-        this.setS3lv2espagnol2(semaine.getS3LV2Espagnol2());
-        this.setS3lv2espagnol3(semaine.getS3LV2Espagnol3());
-        this.setS3lv2italien(semaine.getS3LV2Italien());
-
+        this.s3lv2allemand = new ArrayList<>();
+        this.s3lv2espagnol1 = new ArrayList<>();
+        this.s3lv2espagnol2 = new ArrayList<>();
+        this.s3lv2espagnol3 = new ArrayList<>();
+        this.s3lv2italien = new ArrayList<>();
         this.emplois_du_temps.put("s3lv2allemand", this.getS3lv2allemand());
         this.emplois_du_temps.put("s3lv2espagnol1", this.getS3lv2espagnol1());
         this.emplois_du_temps.put("s3lv2espagnol2", this.getS3lv2espagnol2());
@@ -27,7 +26,6 @@ public class Semestre3LV2 extends SemestreLangue {
         this.emplois_du_temps.put("s3lv2italien", this.getS3lv2italien());
 
     }
-
 
     public ArrayList<Cours> getS3lv2allemand() {
         return s3lv2allemand;
